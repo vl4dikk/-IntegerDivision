@@ -1,0 +1,5 @@
+/bin/
+# ignore the file literally named .classpath
+.classpath
+.project
+/target/
