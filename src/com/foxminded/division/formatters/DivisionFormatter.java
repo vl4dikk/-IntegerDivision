@@ -8,17 +8,17 @@ public class DivisionFormatter {
 
 	public String makeDivision(int dividend, int divisor) {
 		quotient.append(dividend/divisor);
-		
-		dividend = Math.abs(dividend);
-		divisor = Math.abs(divisor);
 
 		if (divisor == 0) {
 			throw new ArithmeticException("Divisor cannot be 0");
 		}
 
-		if (dividend < divisor) {
+		if (dividend < divisor || dividend < 0 || divisor < 0) {
 			return "" + dividend + "/" + divisor + "=0";
 		}
+		
+		Math.abs(dividend);
+		Math.abs(divisor);
 
 		String[] digits = String.valueOf(dividend).split("");
 		Integer reminderNumber;

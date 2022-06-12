@@ -10,13 +10,13 @@ public class DivisionApplication {
 
 	public static void main(String[] args) throws IOException{
 		System.out.println("Enter the divident: ");
-		final Integer divident = Integer.parseInt(new BufferedReader(new InputStreamReader(System.in)).readLine());
+		final Integer dividend = Integer.parseInt(new BufferedReader(new InputStreamReader(System.in)).readLine());
 		System.out.println("Enter the divider: ");	
-		final Integer divider = Integer.parseInt(new BufferedReader(new InputStreamReader(System.in)).readLine());
+		final Integer divisor = Integer.parseInt(new BufferedReader(new InputStreamReader(System.in)).readLine());
 		
 		DivisionFormatter formatter = new DivisionFormatter();
 		System.out.println("Result: ");
-		System.out.println(formatter.makeDivision(divident, divider));
+		System.out.println(formatter.makeDivision(dividend, divisor));
 
 	}
 
