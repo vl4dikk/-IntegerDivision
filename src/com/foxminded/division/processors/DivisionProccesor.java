@@ -6,26 +6,21 @@ import com.foxminded.division.formatters.DivisionFormatter;
 
 public class DivisionProccesor {
 
-	public String makeDivision(int dividend, int divisor) {
-		ArrayList<String> result = new ArrayList<String>();
-//		StringBuilder result = new StringBuilder();
+	public String divide(int dividend, int divisor) throws ArithmeticException {
+		ArrayList<String> separatedLines = new ArrayList<>();
 		StringBuilder reminder = new StringBuilder();
 
 		if (divisor == 0) {
-			throw new ArithmeticException("Divisor cannot be 0");
+			throw new ArithmeticException("Divisor cannot be 0.");
 		}
-
 		if (dividend < divisor || dividend < 0 || divisor < 0) {
 			return "" + dividend + "/" + divisor + "=0";
 		}
-		
-		Math.abs(dividend);
-		Math.abs(divisor);
 
 		String[] digits = String.valueOf(dividend).split("");
-		Integer reminderNumber;
-		Integer multiplyResult;
-		Integer mod;
+		int reminderNumber;
+		int multiplyResult;
+		int mod;
 
 		for (int i = 0; i < digits.length; i++) {
 			reminder.append(digits[i]);
@@ -35,30 +30,29 @@ public class DivisionProccesor {
 				mod = reminderNumber % divisor;
 				multiplyResult = reminderNumber / divisor * divisor;
 
-				String numberToSubstract = String.format("%" + (i + 2) + "s", "_" + reminderNumber.toString() + "\n");
-				result.add(numberToSubstract);
+				String numberToSubstract = String.format("%" + (i + 2) + "s", "_" + reminderNumber);
+				separatedLines.add(numberToSubstract);
 
-				String subtractor = String.format("%" + (i + 2) + "d", multiplyResult + "\n");
-				result.add(subtractor);
+				String subtractor = String.format("%" + (i + 2) + "d", multiplyResult);
+				separatedLines.add(subtractor);
 
 				Integer tab = numberToSubstract.length() - calculateDigitLength(multiplyResult);
-				result.add(makeDivider(multiplyResult, tab));
+				separatedLines.add(makeDivider(multiplyResult, tab));
 
-				reminder.replace(0, reminder.length(), mod.toString());
+				reminder.replace(0, reminder.length(), Integer.toString(mod));
 				reminderNumber = Integer.parseInt(reminder.toString());
-			} 
+			}
 
 			if (i == digits.length - 1) {
-				result.add(String.format("%" + (i + 2) + "s", reminderNumber.toString()) + "\n");
+				separatedLines.add(String.format("%" + (i + 2) + "s", Integer.toString(reminderNumber)));
 			}
 		}
-		DivisionFormatter format = new DivisionFormatter();
-		format.modifyResultToView(dividend, divisor, result);
-		return result.toString();
+		new DivisionFormatter().modifyResultToView(dividend, divisor, separatedLines);
+		return String.join("\n", separatedLines);
 	}
 
 	private String makeDivider(Integer reminderNumber, Integer tab) {
-		return addSymbols(tab, ' ') + addSymbols(calculateDigitLength(reminderNumber), '-') + "\n";
+		return addSymbols(tab, ' ') + addSymbols(calculateDigitLength(reminderNumber), '-');
 	}
 
 	private int calculateDigitLength(int i) {
