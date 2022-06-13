@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.foxminded.javaspring</groupId>
 	<artifactId>IntegerDivision</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	<name>IntegerDividing application</name>
 	<description>IntegerDividing application that divides numbers and prints result into console.</description>
 

@@ -4,9 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import com.foxminded.division.processors.DivisionProccesor;
+
 class DivisionFormatterTest {
 	
-    DivisionFormatter format = new DivisionFormatter();
+    DivisionProccesor format = new DivisionProccesor();
 	
 	@Test
 	void testArithmeticExceptin_ShouldThrowArithmeticException_WhenDivisorIsZero() {
