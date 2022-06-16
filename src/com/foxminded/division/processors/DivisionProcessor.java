@@ -7,6 +7,9 @@ public class DivisionProcessor {
 	public ArrayList<DivisionStep> divide(int dividend, int divisor) throws ArithmeticException {
 		ArrayList<DivisionStep> iterations = new ArrayList<>();
 		StringBuilder reminder = new StringBuilder();
+		
+		dividend = Math.abs(dividend);
+		divisor = Math.abs(divisor);
 
 		String[] digits = String.valueOf(dividend).split("");
 		Integer reminderNumber;
