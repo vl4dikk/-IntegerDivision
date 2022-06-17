@@ -9,7 +9,7 @@ import com.foxminded.division.formatters.UnknownFormatter;
 
 public class FormatterResolver {
 	public Formatter getFormatter(int dividend, int divisor, int choice) {
-		if(divisor == 0) {
+		if(divisor == 0 || dividend < 0 && divisor < 0) {
 			throw new ArithmeticException("Divisor cannot be zero");
 		}
 		if(dividend < divisor) {
