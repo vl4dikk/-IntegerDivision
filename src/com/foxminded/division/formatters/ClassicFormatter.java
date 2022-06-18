@@ -44,7 +44,7 @@ public class ClassicFormatter implements Formatter {
 
              Integer tab = lastReminder.length() - calculateDigit(steps.get(i).getSubtrahend());
              result.append(makeDivider(steps.get(i).getDividend(), tab)).append("\n");
-			}if(i == steps.size()-1) {
+			}else if(i == steps.size()-1) {
 				if (i > 1) {
 					result.append(String.format("%" + (i + 1) + "s", steps.get(i).getDividend().toString())).append("\n");
 				}else

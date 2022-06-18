@@ -21,7 +21,6 @@ public class JsonFormatter implements Formatter{
 		try {
 			return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(json);
 		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return "";
 		}
